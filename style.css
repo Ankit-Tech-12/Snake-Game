@@ -1,0 +1,41 @@
+:root{
+    --primary-color: #4CAF50;
+    --secondary-color: #FF5722;
+    --background-color: #0e0e0e;
+    --text-color: #fcfcfc;
+}
+body,html{
+    height: 100%;
+    width: 100%;
+    /* padding: 50px; */
+    margin: 0;
+    background: var(--background-color);
+    color: var(--text-color);
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#gameBoard{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    padding: 0px;
+    /* flex-grow: 1; */
+    /* flex-shrink: initial; */
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); 
+    grid-template-rows: repeat(auto-fill, minmax(60px, 1fr)); 
+    justify-content: center;
+    align-content: center;
+    
+}
+.innerBlock{ 
+    /* width: 30px;
+    height: 30px; */
+    background: var(--secondary-color);
+    border: 0.5px solid rgb(130, 130, 130);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fill{
+    background: var(--primary-color);
+}
