@@ -3,6 +3,7 @@
     --secondary-color: #FF5722;
     --background-color: #0e0e0e;
     --text-color: #fcfcfc;
+    --food-color:rgb(255, 255, 0);
 }
 body,html{
     height: 100%;
@@ -39,3 +40,6 @@ body,html{
 .fill{
     background: var(--primary-color);
 }
+.food{
+    background: var(--food-color);
+}   

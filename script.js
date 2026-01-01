@@ -1,4 +1,7 @@
 let board=document.getElementById("gameBoard");
+let score=document.getElementById("score");
+let highScore=document.getElementById("highScore");
+highScore.innerText=`High Score: 0`;
 const blocksize=60;
 const col=Math.floor(board.clientWidth/blocksize);
 const row=Math.floor(board.clientHeight/blocksize);
@@ -11,7 +14,12 @@ const snake=[
     // {x:4,y:3},
     // {x:3,y:3}
 ];
+const food={
+    x:Math.floor(Math.random()*row),
+    y:Math.floor(Math.random()*col)
+}
 let direction="right";
+let intervalId=null;
 for(let r=0;r<row;r++){
     for(let c=0;c<col;c++){
         let block=document.createElement("div");
@@ -26,7 +34,7 @@ function renderSnake(){
         let block=blocks[`${snake[i].x}-${snake[i].y}`];
         block.classList.add("fill");
     }}
-    setInterval(()=>{
+    intervalId=setInterval(()=>{
         let head=null;
         let snakeSize=snake.length-1;
         let tailBlock=[`${snake[snakeSize].x}-${snake[snakeSize].y}`];
@@ -43,12 +51,23 @@ function renderSnake(){
         if(direction=="down"){
             head={x:snake[0].x+1,y:snake[0].y};
         }
+        blocks[`${food.x}-${food.y}`].classList.add("food");
+        if(head.x==food.x && head.y==food.y){
+            blocks[`${food.x}-${food.y}`].classList.remove("food");
+            snake.unshift(head);
+            food.x=Math.floor(Math.random()*row);
+            food.y=Math.floor(Math.random()*col);
+            score.innerText=`Score: ${snake.length-1}`;
+        }
         snake.unshift(head);
         snake.pop();
+         if(head.x<0 || head.x>=row || head.y<0 || head.y>=col){
+        alert("Game Over");
+        clearInterval(intervalId);
+    }
         renderSnake();
     },500);
     addEventListener("keydown",(e)=>{
-        console.log(e.key);
         if(e.key=="ArrowLeft"){
             direction="left";
         }
