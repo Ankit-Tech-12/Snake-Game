@@ -26,7 +26,15 @@
             <div id="gameBoard"class="bg-black border-green-500 p-0">           
             </div>
             <!-- Start Button -->
-            <button id="start-button" class="mt-6 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Start Game</button>
+           <div class="modal startGame">
+            <h3 id="notice">Welcome to the Snake Game</h3>
+             <button id="startButton" class="mt-6 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Start Game</button>
+           </div>
+           <!-- restart button -->
+            <div class="modal restartGame">
+                <h3 id="gameOver">Game Over</h3>
+                 <button id="restartBtn" class="mt-6 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Restart Game</button>
+            </div>
         </div>
     </main>
     <script src="script.js"></script>
