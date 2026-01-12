@@ -101,7 +101,7 @@ function moveSnake(){
         restartModal.style.display="flex";
         clearInterval(intervalId);
     }
-    },400);
+    },200); //speed
 }
     //starting the game
     button.addEventListener("click",()=>{
@@ -112,6 +112,7 @@ function moveSnake(){
         let [min,sec]=timerValue.split(":").map(Number);
         if(sec>59){
             min++
+            sec=0;
         }
         else{
             sec++;
